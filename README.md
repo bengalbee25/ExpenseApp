@@ -62,7 +62,7 @@ Users can register, log in, record incomes and expenses, see charts, generate re
 
 ## Project Structure
 
-bash
+---
 ExpenseApp/
 ├── client/                     # React frontend (Vite)
 │   ├── index.html
