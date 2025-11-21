@@ -62,7 +62,7 @@ Users can register, log in, record incomes and expenses, see charts, generate re
 
 ## Project Structure
 
----
+```
 ExpenseApp/
 ├── client/                     # React frontend (Vite)
 │   ├── index.html
@@ -108,7 +108,7 @@ ExpenseApp/
 │           └── validators.js   # Zod validation schemas
 │
 └── expense app database.sql    # Database schema (users, transactions)
-`
+```
 
 ---
 
