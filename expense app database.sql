@@ -1,0 +1,23 @@
+CREATE DATABASE IF NOT EXISTS expense_app CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE expense_app;
+
+CREATE TABLE IF NOT EXISTS users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(150) NOT NULL UNIQUE,
+  password_hash VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS transactions (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  type ENUM('income','expense') NOT NULL,
+  category VARCHAR(100) NOT NULL,
+  amount INT NOT NULL,
+  tx_date DATE NOT NULL,
+  description VARCHAR(255) NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+  INDEX idx_user_date (user_id, tx_date)
+) ENGINE=InnoDB;
